@@ -65,8 +65,10 @@ class LoginViewController: UITableViewController {
             switch loginResult {
             case .failed(let error):
                 print(error)
+                AlertHelper.notificationAlert(title: "Alerta", message: "Ocurrió un error en el logueo", viewController: self)
             case .cancelled:
                 print("Login cancelado.")
+                AlertHelper.notificationAlert(title: "Alerta", message: "Login cancelado", viewController: self)
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
                 print("Logged in!")
                 let uid = accessToken.userId
